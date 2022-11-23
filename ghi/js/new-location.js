@@ -41,6 +41,4 @@ formTag.addEventListener('submit', async event => {
 
 });
 
-
-
 });
