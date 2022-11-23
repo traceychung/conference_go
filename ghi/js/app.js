@@ -24,6 +24,13 @@ try {
     const response = await fetch(url);
 
     if (!response.ok) {
+        return `
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div>
+            Could not load data
+        </div>
+        </div>`
     // Figure out what to do when the response is bad
     } else {
     const data = await response.json();
@@ -36,8 +43,8 @@ try {
         const title = details.conference.name;
         const description = details.conference.description;
         const pictureUrl = details.conference.location.picture_url;
-        const start = new Date(details.conference.ends).toLocaleDateString();
-        const end = new Date(details.conference.starts).toLocaleDateString();
+        const start = new Date(details.conference.starts).toLocaleDateString();
+        const end = new Date(details.conference.ends).toLocaleDateString();
         const location = details.conference.location.name;
         const html = createCard(title, description, pictureUrl, start, end, location);
         const column = document.querySelector('.row-cols-1');
@@ -47,6 +54,7 @@ try {
 
     }
 } catch (e) {
+    console.error('error', e)
     // Figure out what to do if an error is raised
 }
 
