@@ -5,6 +5,7 @@ import ConferenceForm from './ConferenceForm';
 import AttendConference from './AttendConference';
 import PresentationForm from './PresentationForm';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainPage from './MainPage';
 
 function App(props) {
   if (props.attendees === undefined) {
@@ -13,8 +14,8 @@ function App(props) {
   return (
     <BrowserRouter>
       <Nav />
-      <div className="container">
         <Routes>
+          <Route index element={<MainPage />} />
           <Route path="locations">
             <Route path="new" element={<LocationForm />} />
           </Route>
@@ -29,7 +30,6 @@ function App(props) {
               <Route path="new" element={<AttendConference />}></Route>
             </Route>
         </Routes>
-      </div>
     </BrowserRouter>
   );
 }

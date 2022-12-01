@@ -71,7 +71,7 @@ class AttendConference extends React.Component {
         }
 
         return (
-            <div className="container">
+            <div className="my-5 container">
                 <div className="my-5">
                 <div className="row">
                     <div className="col col-sm-auto">
